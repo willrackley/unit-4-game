@@ -1,0 +1,8 @@
+.four-crystals-container{
+    display: flex;
+}
+
+.randCrystal{
+    margin: 5px;
+    border: 1px solid #cccccc;
+}
