@@ -1,8 +1,46 @@
 .four-crystals-container{
     display: flex;
+  
 }
 
 .randCrystal{
     margin: 5px;
     border: 1px solid #cccccc;
+}
+
+#score-to-match{
+    margin-left: 10px;
+}
+
+#wins {
+    margin-left: 10px;
+}
+
+#loss{
+    margin-left: 10px;
+}
+.scoreWinLossContainer{
+    height: 150px;
+    
+    
+}
+
+.scoreToMatchContainer{
+    display: block;
+    background: blue;
+    width: 500px;
+    margin-right: 10px;
+    float: left;
+}
+
+.winLoseContainer{
+    display: block;
+    float: left;
+    background: red;
+    float: left;
+   
+}
+
+#roundCrystal{
+    height: 170px;
 }

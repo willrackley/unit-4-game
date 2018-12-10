@@ -20,6 +20,47 @@ function scoreDisplay(){
     $("#score-to-match").text(randomScore);
 }
 
+function winsAndLosses() {
+    var userScoreTotal = $("#user-score").text();
+    var computerScoreToMatch = $("#score-to-match").text();
+
+    if(parseInt(userScoreTotal) === parseInt(computerScoreToMatch)){
+        win++;
+        $("#wins").text("wins: " + win);
+        console.log("you won dawg");
+        resetGame();
+    } else if(parseInt(userScoreTotal) > parseInt(computerScoreToMatch)){
+        loss++;
+        $("#loss").text("loss: " + loss);
+        resetGame();
+    }
+}
+
+function resetGame(){
+    for(var i = 0; i < 4; i++){
+        randCrystalCount[i] = crystalNumbersArray[Math.floor(Math.random() * crystalNumbersArray.length)];
+        console.log(randCrystalCount);
+    }
+
+    $("#greenCrystal").attr("value", randCrystalCount[0]);
+    $("#blueCrystal").attr("value", randCrystalCount[1]);
+    $("#purpleCrystal").attr("value", randCrystalCount[2]);
+    $("#roundCrystal").attr("value", randCrystalCount[3]);
+
+    scoreDisplay();
+    $("#wins").text("wins: " + win);
+    $("#loss").text("loss: " + loss);
+
+    var userScore = $("#user-score").text();
+    $("#user-score").text("0");
+}
+
+
+function resetUserScore() {
+var userScore = $("#user-score").text();
+parseInt(userScore) = 0;
+
+}
 function onPageLoad(){
 // when the browswer first loads we creat a loop to set an array that holds four random numbers then we set each of those numbers as the value of a crystal
     for(var i = 0; i < 4; i++){
@@ -33,8 +74,10 @@ function onPageLoad(){
     $("#roundCrystal").attr("value", randCrystalCount[3]);
 
     scoreDisplay();
+    $("#wins").text("wins: ");
+    $("#loss").text("loss: ");
+   
 }
-
 
 onPageLoad();
 
@@ -46,6 +89,7 @@ $("#greenCrystal").click(function(){
    userGuessTotal = parseInt(currentScore) + parseInt(numEntry);
    $("#user-score").text(userGuessTotal);
    console.log(parseInt(currentScore) + parseInt(numEntry));
+   winsAndLosses();
 });
 
 $("#blueCrystal").click(function(){
@@ -55,6 +99,7 @@ $("#blueCrystal").click(function(){
     var currentScore = $("#user-score").text();
     userGuessTotal = parseInt(currentScore) + parseInt(numEntry);
     $("#user-score").text(userGuessTotal);
+    winsAndLosses();
 });
 
 $("#purpleCrystal").click(function(){
@@ -64,6 +109,7 @@ $("#purpleCrystal").click(function(){
     var currentScore = $("#user-score").text();
     userGuessTotal = parseInt(currentScore) + parseInt(numEntry);
     $("#user-score").text(userGuessTotal);
+    winsAndLosses();
 });
 
 $("#roundCrystal").click(function(){
@@ -73,19 +119,9 @@ $("#roundCrystal").click(function(){
     var currentScore = $("#user-score").text();
     userGuessTotal = parseInt(currentScore) + parseInt(numEntry);
     $("#user-score").text(userGuessTotal);
+    winsAndLosses();
 });
 
-//function crystalCountSetter() {
-   // var randCrystalCount = Math.floor(math.random * 12);
-    //$("#greenCrystal")
-    //}
 
 
-
-
-//creating the divs for the 4 crystals the the user clicks
-//for(i = 0; i < 4; i++){
-   // var crystalDiv = $("<div>");
-//$(".randCrystals").append(crystalDiv);
-//}
 });
