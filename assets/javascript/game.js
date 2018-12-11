@@ -15,11 +15,33 @@ var randCrystalCount = [];
 var crystalNumbersArray = [1,2,3,4,5,6,7,8,9,10,11,12];
 var userGuessTotal;
 
+//--------FUNCTIONS----------
+
+//function for once the browser first opens or is refreshed
+function onPageLoad(){
+    // when the browswer first loads we creat a loop to set an array that holds four random numbers then we set each of those numbers as the value of a crystal
+    for(var i = 0; i < 4; i++){
+        randCrystalCount[i] = crystalNumbersArray[Math.floor(Math.random() * crystalNumbersArray.length)];
+        console.log(randCrystalCount);
+    }
+ 
+    $("#greenCrystal").attr("value", randCrystalCount[0]);
+    $("#blueCrystal").attr("value", randCrystalCount[1]);
+    $("#purpleCrystal").attr("value", randCrystalCount[2]);
+    $("#roundCrystal").attr("value", randCrystalCount[3]);
+
+    scoreDisplay();
+    $("#wins").text("Wins: ");
+    $("#loss").text("Losses: "); 
+}
+
+//function to display the random value that has to be matched
 function scoreDisplay(){
     var randomScore = Math.floor(Math.random() * 120) + 19;
     $("#score-to-match").text(randomScore);
 }
 
+//function that determines how the user wins or loses and what happens after that
 function winsAndLosses() {
     var userScoreTotal = $("#user-score").text();
     var computerScoreToMatch = $("#score-to-match").text();
@@ -27,7 +49,6 @@ function winsAndLosses() {
     if(parseInt(userScoreTotal) === parseInt(computerScoreToMatch)){
         win++;
         $("#wins").text("wins: " + win);
-        console.log("you won dawg");
         resetGame();
     } else if(parseInt(userScoreTotal) > parseInt(computerScoreToMatch)){
         loss++;
@@ -36,6 +57,7 @@ function winsAndLosses() {
     }
 }
 
+//function that starts the game over after the user wins or loses
 function resetGame(){
     for(var i = 0; i < 4; i++){
         randCrystalCount[i] = crystalNumbersArray[Math.floor(Math.random() * crystalNumbersArray.length)];
@@ -53,54 +75,24 @@ function resetGame(){
 
     var userScore = $("#user-score").text();
     $("#user-score").text("0");
-   
-    
 }
 
 
-function resetUserScore() {
-var userScore = $("#user-score").text();
-parseInt(userScore) = 0;
-
-}
-function onPageLoad(){
-// when the browswer first loads we creat a loop to set an array that holds four random numbers then we set each of those numbers as the value of a crystal
-    for(var i = 0; i < 4; i++){
-        randCrystalCount[i] = crystalNumbersArray[Math.floor(Math.random() * crystalNumbersArray.length)];
-        console.log(randCrystalCount);
-    }
-
-    $("#greenCrystal").attr("value", randCrystalCount[0]);
-    $("#blueCrystal").attr("value", randCrystalCount[1]);
-    $("#purpleCrystal").attr("value", randCrystalCount[2]);
-    $("#roundCrystal").attr("value", randCrystalCount[3]);
-
-    scoreDisplay();
-    $("#wins").text("Wins: ");
-    $("#loss").text("Losses: ");
-   
-}
-
+//-------Game Logic----------
 
 onPageLoad();
 
-
+//once a button is clicked, the amount of points that the crystal holds adds to the users total score
 
 $("#greenCrystal").click(function(){
-   console.log("green crystal " + $(this).attr("value"));
-   //the amount of the crystal is added to the total when clicked
    var numEntry = $(this).attr("value");
    var currentScore = $("#user-score").text();
    userGuessTotal = parseInt(currentScore) + parseInt(numEntry);
    $("#user-score").text(userGuessTotal);
-   console.log(currentScore);
-   console.log(parseInt(currentScore) + parseInt(numEntry));
    winsAndLosses();
 });
 
 $("#blueCrystal").click(function(){
-    console.log("blue crystal " + $(this).attr("value"));
-    //the amount of the crystal is added to the total when clicked
     var numEntry = $(this).attr("value");
     var currentScore = $("#user-score").text();
     userGuessTotal = parseInt(currentScore) + parseInt(numEntry);
@@ -109,8 +101,6 @@ $("#blueCrystal").click(function(){
 });
 
 $("#purpleCrystal").click(function(){
-    console.log("purple crystal " + $(this).attr("value"));
-    //the amount of the crystal is added to the total when clicked
     var numEntry = $(this).attr("value");
     var currentScore = $("#user-score").text();
     userGuessTotal = parseInt(currentScore) + parseInt(numEntry);
@@ -119,15 +109,10 @@ $("#purpleCrystal").click(function(){
 });
 
 $("#roundCrystal").click(function(){
-    console.log("round crystal " + $(this).attr("value"));
-    //the amount of the crystal is added to the total when clicked
     var numEntry = $(this).attr("value");
     var currentScore = $("#user-score").text();
     userGuessTotal = parseInt(currentScore) + parseInt(numEntry);
     $("#user-score").text(userGuessTotal);
     winsAndLosses();
 });
-
-
-
 });

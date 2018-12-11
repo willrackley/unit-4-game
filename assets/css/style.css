@@ -1,9 +1,8 @@
-body {
+body{
     background-image: url(../images/crystalBackground.jpg);
     background-size: cover;
     font-family: 'Ubuntu', sans-serif,'Times New Roman', Times, serif;
 }
-
 .title-container h1{
     color: #ffffff;
     margin-left: 10px;
@@ -13,8 +12,7 @@ body {
     width: 600px;
     border: 1px solid rgb(255,255,255, .8);
     border-radius: 25px;
-    margin-bottom: 30px;
-    
+    margin-bottom: 30px; 
 }
 .instructions-container p{
     color: rgb(255, 255, 255);
@@ -29,13 +27,11 @@ body {
     width: 620px;
     height: 200px;
 }
-
 .randCrystal{
     margin-right: 10px;
     margin-top: 15px;
     border: 1px solid #cccccc;
 }
-
 #score-to-match{
     text-align: center;
     vertical-align: middle;
@@ -43,14 +39,11 @@ body {
     color: #ffffff;
     margin: 0 auto;
     margin-top: 40px;
-
 }
-
 #wins {
     margin-left: 10px;
     color: #ffffff;
 }
-
 #loss{
     margin-left: 10px;
     color: #ffffff;
@@ -58,9 +51,7 @@ body {
 .scoreWinLossContainer{
     height: 150px;
     margin-bottom: 20px;
-    
 }
-
 .scoreToMatchContainer{
     display: block;
     width: 200px;
@@ -70,7 +61,6 @@ body {
     border: 1px solid rgb(255,255,255, .8);
     border-radius: 25px;
 }
-
 .winLoseContainer{
     display: block;
     float: left;
@@ -80,7 +70,6 @@ body {
     height: 150px;
     width: 200px;
 }
-
 #roundCrystal{
     height: 170px;
 }
@@ -95,12 +84,10 @@ body {
     text-align: center;
     margin-top: -15px;
 }
-
 #user-score{
     font-size: 75px;
     color: #ffffff;
     margin-top: -30px;
     width: 230px;
     text-align: center;
-    
 }
