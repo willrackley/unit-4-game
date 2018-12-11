@@ -1,15 +1,17 @@
 body {
     background-image: url(../images/crystalBackground.jpg);
     background-size: cover;
+    font-family: 'Ubuntu', sans-serif,'Times New Roman', Times, serif;
 }
 
 .title-container h1{
     color: #ffffff;
     margin-left: 10px;
+    letter-spacing: 5px;
 }
 .instructions-container{
     width: 600px;
-    border: 1px solid rgb(255,255,255, .8);
+    border: 3px solid rgb(255,255,255, .8);
     border-radius: 25px;
     margin-bottom: 30px;
     background: rgba(255, 255, 255, 0.8);
