@@ -53,6 +53,8 @@ function resetGame(){
 
     var userScore = $("#user-score").text();
     $("#user-score").text("0");
+   
+    
 }
 
 
@@ -74,12 +76,15 @@ function onPageLoad(){
     $("#roundCrystal").attr("value", randCrystalCount[3]);
 
     scoreDisplay();
-    $("#wins").text("wins: ");
-    $("#loss").text("loss: ");
+    $("#wins").text("Wins: ");
+    $("#loss").text("Losses: ");
    
 }
 
+
 onPageLoad();
+
+
 
 $("#greenCrystal").click(function(){
    console.log("green crystal " + $(this).attr("value"));
@@ -88,6 +93,7 @@ $("#greenCrystal").click(function(){
    var currentScore = $("#user-score").text();
    userGuessTotal = parseInt(currentScore) + parseInt(numEntry);
    $("#user-score").text(userGuessTotal);
+   console.log(currentScore);
    console.log(parseInt(currentScore) + parseInt(numEntry));
    winsAndLosses();
 });
